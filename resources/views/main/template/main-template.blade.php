@@ -63,7 +63,7 @@
                             <ul>
                                 <li class="@yield('active-class-home')"><a href="/">Home</a>
                                 </li>
-                                <li class="@yield('active-class-about')"><a href="/about">About</a></li>
+                                <li class="@yield('active-class-about')"><a href="/main/about">About</a></li>
                                 <!-- <li class="@yield('active-class-pages')"><a href="#">Pages</a>
                                     <ul class="sub-menu">
                                         <li><a href="404.html">404 page</a></li>
@@ -75,19 +75,19 @@
                                         <li><a href="shop.html">Shop</a></li>
                                     </ul>
                                 </li> -->
-                                <li class="@yield('active-class-news')"><a href="/news">News</a>
+                                <li class="@yield('active-class-news')"><a href="/main/news">News</a>
                                     {{-- <ul class="sub-menu">
                                         <li><a href="news.html">News</a></li>
                                         <li><a href="single-news.html">Single News</a></li>
                                     </ul> --}}
                                 </li>
-                                <li class="@yield('active-class-contact')"><a href="/contact">Contact</a></li>
-                                <li class="@yield('active-class-shop')"><a href="/shop">Shop</a>
+                                <li class="@yield('active-class-contact')"><a href="/main/contact">Contact</a></li>
+                                <li class="@yield('active-class-shop')"><a href="/main/shop">Shop</a>
                                     <ul class="sub-menu">
-                                        <li><a href="/shop">Shop</a></li>
-                                        <li><a href="/checkout">Check Out</a></li>
-                                        <li><a href="/single-product">Single Product</a></li>
-                                        <li><a href="/cart">Cart</a></li>
+                                        <li><a href="/main/shop">Shop</a></li>
+                                        <li><a href="/main/checkout">Check Out</a></li>
+                                        <li><a href="/main/single-product">Single Product</a></li>
+                                        <li><a href="/main/cart">Cart</a></li>
                                     </ul>
                                 </li>
                                 <li>
