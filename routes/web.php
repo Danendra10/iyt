@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\UserController;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -55,3 +57,8 @@ Route::prefix("/main")->group(function () {
         return view('main.cart');
     });
 });
+
+Route::post("/register/send", [UserController::class, "register"]);
+Route::post("/login", [UserController::class, "login"]);
+
+Route::get("/verify/{email}", [UserController::class, "verifyAccount"]);
