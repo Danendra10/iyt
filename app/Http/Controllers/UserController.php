@@ -67,7 +67,7 @@ class UserController extends Controller
     {
         $credentials = ['email' => $req->email, 'password' => $req->password];
         if (Auth::attempt($credentials))
-            return redirect('/');
+            return redirect('/user/home');
     }
 
     public function verify($id)
@@ -78,5 +78,12 @@ class UserController extends Controller
             return redirect("/login")->with("success", "You've registered your account successfully");
         else
             return redirect("/login")->with("failed", "Failed on registering your account");
+    }
+
+    public function logout (Request $req)
+    {
+        $req->session()->flush();
+        Auth::logout();
+        return redirect('/');
     }
 }

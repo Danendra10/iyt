@@ -50,8 +50,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <button type="submit" class="btn btn-primary rounded submit p-3 px-5">Get
-                                    Started</button>
+                                <button type="submit" class="btn btn-primary rounded submit p-3 px-5">Login</button>
                             </div>
                         </form>
                     </div>

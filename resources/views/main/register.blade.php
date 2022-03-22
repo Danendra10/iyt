@@ -49,7 +49,7 @@
                                 <input type="text" class="form-control rounded-left" placeholder="Email" name="email" required>
                             </div>
                             <div class="form-group d-flex">
-                                <input type="password" class="form-control rounded-left" placeholder="Password" name="password" 
+                                <input type="password" class="form-control rounded-left" placeholder="Password" name="password-" 
                                     required>
                             </div>
                             <div class="form-group d-md-flex">

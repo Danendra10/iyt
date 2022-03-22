@@ -1,4 +1,4 @@
-@extends('main/template/main-template')
+@extends('user/template/user-template')
 
 @section('title')
 Home

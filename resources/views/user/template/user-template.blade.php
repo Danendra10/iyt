@@ -55,8 +55,6 @@
                         <div class="site-logo">
                             <a href="index.html">
                                 {{-- <img src="/" alt="Planee"> --}}
-                                {{-- <li class="@yield('active-class-home')"><a href="/">Planee</a>
-                                </li> --}}
                             </a>
                         </div>
                         <!-- logo -->
@@ -88,9 +86,9 @@
                                 @if (!Auth::check())
                                     <li class="@yield('active-class-shop')"><a href="/main/shop">Shop</a>
                                         <ul class="sub-menu">
-                                            <li><a href="/main/shop">Shop</a></li>
-                                            <li><a href="/main/checkout">Check Out</a></li>
-                                            <li><a href="/main/single-product">Single Product</a></li>
+                                            <li><a href="/user/vendor">Search Vendor</a></li>
+                                            <li><a href="/user/EO">Search EO</a></li>
+                                            {{-- <li><a href="/main/single-product">Single Product</a></li> --}}
                                             <li><a href="/main/cart">Cart</a></li>
                                         </ul>
                                     </li>
@@ -98,10 +96,10 @@
                                 @if (Auth::check())
                                     <li class="@yield('active-class-shop')"><a href="/main/shop">Shop</a>
                                         <ul class="sub-menu">
-                                            <li><a href="/main/shop">Our Vendor</a></li>
-                                            <li><a href="/main/checkout">Our Event Organizer</a></li>
-                                            <li><a href="/main/single-product">Our Sponsorship Agency</a></li>
-                                            <li><a href="/main/cart">Cart</a></li>
+                                            <li><a href="/user/vendor">Our Vendor</a></li>
+                                            <li><a href="/user/EO">Our Event Organizer</a></li>
+                                            {{-- <li><a href="/user/single-product">Our Sponsorship Agency</a></li> --}}
+                                            <li><a href="/user/cart">Cart</a></li>
                                         </ul>
                                     </li>
                                 @endif
@@ -111,11 +109,11 @@
                                                 class="fas fa-shopping-cart @yield('active-class')"></i></a>
                                         <a class="mobile-hide search-bar-icon" href="#"><i
                                                 class="fas fa-search @yield('active-class')"></i></a>
-                                        {{-- @if(Auth::check())
-                                        <i class="fa-solid fa-user"></i>
-                                        @else --}}
-                                        <a href="/login" class="mobile-hide">Login</a>
-                                        {{-- @endif --}}
+                                        @if(Auth::check())
+                                        {{-- <i class="fa-solid fa-user"></i> --}}
+                                        <a href="/logout" class="mobile-hide">Logout</a>
+                                        @else
+                                        @endif
                                     </div>
                                 </li>
                             </ul>

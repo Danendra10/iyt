@@ -60,5 +60,24 @@ Route::prefix("/main")->group(function () {
 
 Route::post("/register/send", [UserController::class, "register"]);
 Route::post("/login", [UserController::class, "login"]);
+Route::get("/logout", [UserController::class, "logout"]);
 
 Route::get("/verify/{email}", [UserController::class, "verifyAccount"]);
+
+Route::prefix("/user")->group(function () {
+    Route::get("/home", function(){
+        return view("user.home");
+    });
+
+    Route::get("/vendor", function(){
+        return view("user.vendor.vendor");
+    });
+
+    Route::get("/EO", function(){
+        return view("user.EventOrganizer.EO");
+    });
+
+    Route::get("/cart", function(){
+        return view("user.cart");
+    });
+});
