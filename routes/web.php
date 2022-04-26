@@ -6,13 +6,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
 /*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
+Buatlah variabel yang dapat dipahami orang banyak
 |
 */
 Route::get('/', function () {
@@ -26,6 +20,12 @@ Route::get('/login', function () {
 Route::get('/register', function () {
     return view('main.register');
 });
+
+Route::post("/register/send", [UserController::class, "register"]);
+Route::post("/login", [UserController::class, "login"]);
+Route::get("/logout", [UserController::class, "logout"]);
+
+Route::get("/verify/{email}", [UserController::class, "verifyAccount"]);
 
 
 Route::prefix("/main")->group(function () {
@@ -57,12 +57,6 @@ Route::prefix("/main")->group(function () {
         return view('main.cart');
     });
 });
-
-Route::post("/register/send", [UserController::class, "register"]);
-Route::post("/login", [UserController::class, "login"]);
-Route::get("/logout", [UserController::class, "logout"]);
-
-Route::get("/verify/{email}", [UserController::class, "verifyAccount"]);
 
 Route::prefix("/user")->group(function () {
     Route::get("/home", function(){

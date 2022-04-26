@@ -52,13 +52,22 @@
                                 <input type="password" class="form-control rounded-left" placeholder="Password" name="password-" 
                                     required>
                             </div>
-                            <div class="form-group d-md-flex">
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Choose Your Role</option>
+                                <option value="user">User</option>
+                                <option value="partner">Partner</option>
+                              </select>
+
+                              {{-- Tambah, jika memilih partner, maka akan ada data tambahan yang harus diisikan.
+                                
+                                 --}}
+                            {{-- <div class="form-group d-md-flex">
                                 <div class="w-50">
                                     <label class="checkbox-wrap checkbox-primary">Remember Me
                                         <input type="checkbox" checked>
                                         <span class="checkmark"></span>
                                     </label>
-                                </div>
+                                </div> --}}
                                 <div class="w-50 text-md-right">
                                     <a href="/login">Have an account?</a>
                                 </div>

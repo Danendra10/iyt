@@ -111,9 +111,7 @@
                                                 class="fas fa-shopping-cart @yield('active-class')"></i></a>
                                         <a class="mobile-hide search-bar-icon" href="#"><i
                                                 class="fas fa-search @yield('active-class')"></i></a>
-                                        {{-- @if(Auth::check())
-                                        <i class="fa-solid fa-user"></i>
-                                        @else --}}
+                                        {{-- @if(Auth::\ --}}
                                         <a href="/login" class="mobile-hide">Login</a>
                                         {{-- @endif --}}
                                     </div>
