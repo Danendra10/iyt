@@ -40,9 +40,9 @@
                             <span class="fa fa-user-o"></span>
                         </div>
                         <h3 class="text-center mb-4">Create your account</h3>
-                        <form action="{{ url('/register/switch') }}" class="login-form text-center" method="POST">
-                            @csrf
-                            {{-- <div class="form-group">
+                        <form action="{{ url('/register/user') }}" class="login-form text-center" method="POST">
+							@csrf
+							<div class="form-group">
                                 <input type="text" class="form-control rounded-left" placeholder="Username" name="name" required>
                             </div>
                             <div class="form-group">
@@ -51,14 +51,11 @@
                             <div class="form-group d-flex">
                                 <input type="password" class="form-control rounded-left" placeholder="Password" name="password-" 
                                     required>
-                            </div> --}}
-                            <select class="form-select" aria-label="Default select example" name="role_changer">
-                                <option selected>Choose Your Role</option>
-                                <option value="1">User</option>
-                                <option value="2">Partner</option>
-                            </select>
+                            </div>
 
-                            {{-- Tambah, jika memilih partner, maka akan ada data tambahan yang harus diisikan. --}}
+                              {{-- Tambah, jika memilih partner, maka akan ada data tambahan yang harus diisikan.
+                                
+                                 --}}
                             {{-- <div class="form-group d-md-flex">
                                 <div class="w-50">
                                     <label class="checkbox-wrap checkbox-primary">Remember Me
@@ -66,18 +63,18 @@
                                         <span class="checkmark"></span>
                                     </label>
                                 </div> --}}
-                            <div class="w-50 text-right">
-                                <a href="/login">Have an account?</a>
+                                <div class="w-50 text-right">
+                                    <a href="/login">Have an account?</a>
+                                </div>
                             </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary rounded submit p-3 px-5">Get
+                                    Started</button>
+                            </div>
+                        </form>
                     </div>
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-primary rounded submit p-3 px-5">Get
-                            Started</button>
-                    </div>
-                    </form>
                 </div>
             </div>
-        </div>
         </div>
     </section>
 

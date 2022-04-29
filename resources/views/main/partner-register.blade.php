@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Register</title>
+    <title>Partner Register</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -39,25 +39,38 @@
                         <div class="icon d-flex align-items-center justify-content-center">
                             <span class="fa fa-user-o"></span>
                         </div>
-                        <h3 class="text-center mb-4">Create your account</h3>
-                        <form action="{{ url('/register/switch') }}" class="login-form text-center" method="POST">
+                        <h3 class="text-center mb-4">Be our partner</h3>
+                        <form action="{{ url('/register/partner') }}" class="login-form text-center" method="POST">
                             @csrf
-                            {{-- <div class="form-group">
-                                <input type="text" class="form-control rounded-left" placeholder="Username" name="name" required>
+                            <div class="form-group">
+                                <input type="text" class="form-control rounded-left" placeholder="Company Name"
+                                    name="name" required>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control rounded-left" placeholder="Email" name="email" required>
+                                <input type="text" class="form-control rounded-left" placeholder="Email" name="email"
+                                    required>
                             </div>
                             <div class="form-group d-flex">
-                                <input type="password" class="form-control rounded-left" placeholder="Password" name="password-" 
-                                    required>
-                            </div> --}}
-                            <select class="form-select" aria-label="Default select example" name="role_changer">
-                                <option selected>Choose Your Role</option>
-                                <option value="1">User</option>
-                                <option value="2">Partner</option>
+                                <input type="password" class="form-control rounded-left" placeholder="Password"
+                                    name="password-" required>
+                            </div>                            
+                            <div class="form-group d-flex">
+                                <input type="text" class="form-control rounded-left" placeholder="NPWP"
+                                    name="NPWP" required>
+                            </div>
+                            <div class="form-group d-flex">
+                                <input type="text" class="form-control rounded-left" placeholder="Address"
+                                    name="address" required>
+                            </div>
+                            <div class="form-group d-flex">
+                                <input type="text" class="form-control rounded-left" placeholder="Post Code"
+                                    name="postcode" required>
+                            </div>
+                            <select class="form-select" aria-label="Default select example" name="company_type">
+                                <option selected>Choose Your Company Type</option>
+                                <option value="1">Vendor</option>
+                                <option value="2">Event Organizer</option>
                             </select>
-
                             {{-- Tambah, jika memilih partner, maka akan ada data tambahan yang harus diisikan. --}}
                             {{-- <div class="form-group d-md-flex">
                                 <div class="w-50">
