@@ -71,14 +71,6 @@
                                 <option value="1">Vendor</option>
                                 <option value="2">Event Organizer</option>
                             </select>
-                            {{-- Tambah, jika memilih partner, maka akan ada data tambahan yang harus diisikan. --}}
-                            {{-- <div class="form-group d-md-flex">
-                                <div class="w-50">
-                                    <label class="checkbox-wrap checkbox-primary">Remember Me
-                                        <input type="checkbox" checked>
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div> --}}
                             <div class="w-50 text-right">
                                 <a href="/login">Have an account?</a>
                             </div>
