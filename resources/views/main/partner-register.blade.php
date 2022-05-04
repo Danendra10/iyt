@@ -40,11 +40,11 @@
                             <span class="fa fa-user-o"></span>
                         </div>
                         <h3 class="text-center mb-4">Be our partner</h3>
-                        <form action="{{ url('/register/partner') }}" class="login-form text-center" method="POST">
+                        <form action="{{ url('/register/partner/send') }}" class="login-form text-center" method="POST">
                             @csrf
                             <div class="form-group">
                                 <input type="text" class="form-control rounded-left" placeholder="Company Name"
-                                    name="name" required>
+                                    name="com_name" required>
                             </div>
                             <div class="form-group">
                                 <input type="text" class="form-control rounded-left" placeholder="Email" name="email"
@@ -52,11 +52,15 @@
                             </div>
                             <div class="form-group d-flex">
                                 <input type="password" class="form-control rounded-left" placeholder="Password"
-                                    name="password-" required>
+                                    name="password" required>
                             </div>                            
                             <div class="form-group d-flex">
                                 <input type="text" class="form-control rounded-left" placeholder="NPWP"
                                     name="NPWP" required>
+                            </div>
+                            <div class="form-group d-flex">
+                                <input type="text" class="form-control rounded-left" placeholder="City"
+                                    name="city" required>
                             </div>
                             <div class="form-group d-flex">
                                 <input type="text" class="form-control rounded-left" placeholder="Address"
@@ -66,7 +70,7 @@
                                 <input type="text" class="form-control rounded-left" placeholder="Post Code"
                                     name="postcode" required>
                             </div>
-                            <select class="form-select" aria-label="Default select example" name="company_type">
+                            <select class="form-select" aria-label="Default select example" name="com_type">
                                 <option selected>Choose Your Company Type</option>
                                 <option value="1">Vendor</option>
                                 <option value="2">Event Organizer</option>

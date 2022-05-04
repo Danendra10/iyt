@@ -71,53 +71,59 @@ class UserController extends Controller
 
     public function partnerRegister(Request $data)
     {
+        // return "masuk";
         $input['email'] = $data->email;
         $input['password'] = $data->password;
         $input['company_name'] = $data->company_name;
         $email_target = $data->email;
 
-        $reg_rule = array('email' => 'required|email|unique:users,email', 'password' => 'required|min:8', 'company_name' => 'required');
+        // $reg_rule = array('email' => 'required|email|unique:users,email', 'password' => 'required|min:8', 'company_name' => 'required');
 
-        $validator = Validator::make($input, $reg_rule);
+        // $validator = Validator::make($input, $reg_rule);
 
-        if ($validator->fails()) {
-            return redirect('/register')->with('failed', 'Email has been registered, please use another email');
-        } else {
-            //for vendor
-            if ($data->com_type == 1) {
-                Vendor::create([
-                    "company_name" => $data->com_name,
-                    "email" => $data->email,
-                    "password" => Hash::make($data->password),
-                    "NPWP" => $data->NPWN,
-                    "city" => $data->city,
-                    "address" => $data->address,
-                    "postcode" => $data->postcode,
-                ]);
-            }
-            else if ($data->com_type == 1) {
-                EO::create([
-                    "company_name" => $data->com_name,
-                    "email" => $data->email,
-                    "password" => Hash::make($data->password),
-                    "NPWP" => $data->NPWN,
-                    "city" => $data->city,
-                    "address" => $data->address,
-                    "postcode" => $data->postcode,
-                ]);
-            }
+        // if ($validator->fails()) {
+        //     return redirect('/register')->with('failed', 'Email has been registered, please use another email');
+        // } 
+        // else {
+        //for vendor
+        if ($data->com_type == 1) {
+            Vendor::create([
+                "company_name" => $data->com_name,
+                "email" => $data->email,
+                "password" => Hash::make($data->password),
+                "NPWP" => $data->NPWP,
+                "city" => $data->city,
+                "address" => $data->address,
+                "postcode" => $data->postcode,
+                "company_type" => $data->com_type,
+            ]);
+        } else if ($data->com_type == 2) {
+            EO::create([
+                "company_name" => $data->com_name,
+                "email" => $data->email,
+                "password" => Hash::make($data->password),
+                "NPWP" => $data->NPWN,
+                "city" => $data->city,
+                "address" => $data->address,
+                "postcode" => $data->postcode,
+                "company_type" => $data->com_type,
+            ]);
+            // }
         }
+        return redirect("/login");
     }
 
-    // public function register_dummy()
-    // {
-    //     FacadesMail::to("danendraclever24@gmail.com", "danendraclever24@gmail.com")->subject("email verif")->from("enginerredstone0@gmail.com");
-    //     FacadesMail::send()
-    //     // FacadesMail::send('email.veriffication', $data, function($message) use ($email_target){
-    //     //     $message->to($email_target, $email_target)->subject("Account Veriffication");
-    //     //     $message->from("enginerredstone0@gmail.com");
-    //     // });
-    // }
+    public function loginSwitch(Request $req)
+    {
+        $role = $req->role_changer;
+        if ($role == 1) {
+            return redirect("/user/login");
+        } else if ($role == 2) {
+            return redirect("/vendor/login");
+        } else if ($role == 3) {
+            return redirect("/event-organizer/login");
+        }
+    }
 
     public function login(Request $req)
     {

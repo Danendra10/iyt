@@ -44,9 +44,10 @@ Route::prefix('register')->group(function () {
 
     //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
     Route::post("/user", [UserController::class, "userRegister"]);
-    Route::post("/partner", [UserController::class, "partnerRegister"]);
+    Route::post("/partner/send", [UserController::class, "partnerRegister"]);
 });
 
+Route::post("/login/switch", [UserController::class, "loginSwitch"]);
 
 
 Route::prefix("/main")->group(function () {
@@ -94,5 +95,25 @@ Route::prefix("/user")->group(function () {
 
     Route::get("/cart", function () {
         return view("user.cart");
+    });
+});
+
+Route::prefix("/partner")->group(function () {
+    Route::prefix("/vendor")->group(function () {
+        Route::get("/login", function(){
+            return view("partner.Vendor.login");
+        });
+        Route::get("/dashboard", function () {
+            return view("partner.Vendor.dashboard");
+        });
+    });
+
+    Route::prefix("/event-organizer")->group(function(){
+        Route::get("/login", function(){
+            return view("partner.Event-Organizer.login");
+        });
+        Route::get("/dashboard", function () {
+            return view("partner.Event-Organizer.dashboard");
+        });
     });
 });
