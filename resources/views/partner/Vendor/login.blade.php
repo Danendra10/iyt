@@ -29,7 +29,7 @@
                             <span class="fa fa-user-o"></span>
                         </div>
                         <h3 class="text-center mb-4">Have an account?</h3>
-                        <form action="{{ url('/login') }}" class="login-form" method="POST">
+                        <form action="{{ url('/partner/vendor/login') }}" class="login-form" method="POST">
                             @csrf
                             <div class="form-group">
                                 <input type="text" class="form-control rounded-left" placeholder="Email" name="email" required>

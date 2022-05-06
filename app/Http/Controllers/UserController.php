@@ -67,6 +67,12 @@ class UserController extends Controller
 
     public function userRegister(Request $data)
     {
+        User::create([
+            "name" =>$data->name,
+            "email" =>$data->email,
+            "password" => Hash::make($data->password),
+        ]);
+        return redirect("/login");
     }
 
     public function partnerRegister(Request $data)
@@ -86,7 +92,7 @@ class UserController extends Controller
         // } 
         // else {
         //for vendor
-        if ($data->com_type == 1) {
+        if ($data->com_type == 1) {            
             Vendor::create([
                 "company_name" => $data->com_name,
                 "email" => $data->email,
@@ -119,17 +125,62 @@ class UserController extends Controller
         if ($role == 1) {
             return redirect("/user/login");
         } else if ($role == 2) {
-            return redirect("/vendor/login");
+            return redirect("/partner/vendor/login");
         } else if ($role == 3) {
-            return redirect("/event-organizer/login");
+            return redirect("/partner/event-organizer/login");
         }
     }
 
-    public function login(Request $req)
+    public function loginUser(Request $req)
     {
+        // $credentials = ['email' => $req->email, 'password' => $req->password];
+        // if (!Auth::guard('web')->attempt($credentials))
+        //     return redirect('/user/home');
+        // else
+        //     echo "False";
+
+        if(auth()->guard('users')->attempt([
+            'email' => $req->email,
+            'password' => $req->password,
+        ])){
+                $user = auth()->user();
+                return redirect('/user/home');
+        }
+        else{
+            return redirect()->back()->with("failed", "Email atau Password yang anda masukkan salah");
+        }
+
+        // $users = User::where(['name' => $req->name])->first();
+
+        // if (!$users && !Hash::check($req->input('password') , $users->password)) {
+
+        //     return " UserName or passWord is not matched";
+        // } else {
+        //     $req->session()->put('users', $users);
+        //     return redirect('/user/home');
+        // }
+    }
+
+    public function loginVendor(Request $req)
+    {
+        echo "masuk kok";
         $credentials = ['email' => $req->email, 'password' => $req->password];
         if (Auth::attempt($credentials))
-            return redirect('/user/home');
+            return redirect('/partner/vendor/dashboard');
+        else
+            echo "failed to login";
+
+        // $cred = Vendor::where(["email" =>$req])->first();
+
+        // echo $req->email;
+        // echo $req->password;
+
+        // if($cred && Hash::check($req->input("password"), $cred->password)){
+        //     return "Username or Password doesn't match";
+        // } else{
+        //     $req->session()->put('vendors', $cred);
+        //     return redirect("/partner/vendor/dashboard");
+        // }
     }
 
     public function verify($id)

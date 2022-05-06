@@ -2,8 +2,10 @@
 
 namespace App\Providers;
 
+use App\Providers\UserGuard;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Auth;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -26,5 +28,8 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies();
 
         //
+        Auth::extend('users', function($app, $name, array $config){
+            return new UserGuard(Auth::createUserProvider($config['provider']));
+        });
     }
 }

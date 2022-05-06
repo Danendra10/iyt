@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\VendorController;
+
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -96,16 +98,32 @@ Route::prefix("/user")->group(function () {
     Route::get("/cart", function () {
         return view("user.cart");
     });
+
+    Route::get("/login", function(){
+        return view("user.user-login");
+    });
+
+
+    Route::post("/login", [UserController::class, "loginUser"]);
 });
 
 Route::prefix("/partner")->group(function () {
     Route::prefix("/vendor")->group(function () {
+        //>>>>>>>>>>>>>>>>>>>>>>>>>
+        //GET
+        //>>>>>>>>>>>>>>>>>>>>>>>>>
         Route::get("/login", function(){
             return view("partner.Vendor.login");
         });
         Route::get("/dashboard", function () {
             return view("partner.Vendor.dashboard");
         });
+
+        //>>>>>>>>>>>>>>>>>>>>>>>>>
+        //POST
+        //>>>>>>>>>>>>>>>>>>>>>>>>>
+        // Route::post("/login", [VendorController::class, "login"]);
+        Route::post("/login", [UserController::class, "loginVendor"]);
     });
 
     Route::prefix("/event-organizer")->group(function(){
